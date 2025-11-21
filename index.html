@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Jewelry Lookbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    html, body {
+    margin: 0;
+    height: 100%;
+    background: transparent !important;
+    overflow: hidden;
+    }
+    
+    #flip-book-container {
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Language switch bar */
+    #language-switch {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999999;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      pointer-events: auto;
+    }
+
+    .lang-btn {
+      border: none;
+      padding: 6px 16px;
+      margin: 0 4px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.18);
+      color: #f5f5f5;
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-btn.active {
+      background: #f5f5f5;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language toggle -->
+  <div id="language-switch">
+    <button id="btn-jpn" class="lang-btn active">JPN</button>
+    <button id="btn-eng" class="lang-btn">ENG</button>
+  </div>
+
+  <!-- Flipbook container -->
+  <div id="flip-book-container"></div>
+
+  <!-- Libraries (same ones that worked before) -->
+  <script src="js/libs/jquery.min.js"></script>
+  <script src="js/libs/three.min.js"></script>
+  <script src="js/libs/pdf.min.js"></script>
+  <script src="js/libs/pdf.worker.js"></script>
+  <script src="js/libs/libs.js"></script>
+  <script src="js/libs/default-book-view.js"></script>
+
+  <!-- 3D FlipBook bundle -->
+  <script src="js/dist/3dflipbook.min.js"></script>
+
+  <script>
+    const BOOKS = {
+      jpn: 'pdf/amf_Jewelry_LookBook_JPN.pdf',
+      eng: 'pdf/amf_Jewelry_LookBook_ENG.pdf'
+    };
+
+    function loadBook(lang) {
+      var $ = jQuery;
+      var pdfPath = BOOKS[lang];
+      var $container = $('#flip-book-container');
+
+      // Clear previous instance (prevents flaky behavior)
+      $container.html('');
+
+      $container.FlipBook({
+        pdf: pdfPath,
+        template: {
+          html: 'templates/default-book-view.html',
+          styles: [
+            'css/white-book-view.css',
+            'css/font-awesome.min.css'
+          ],
+          script: 'js/default-book-view.js',
+          sounds: {
+            startFlip: 'sounds/start-flip.mp3',
+            endFlip: 'sounds/end-flip.mp3'
+          }
+        }
+      });
+
+      // Update active state on buttons
+      $('.lang-btn').removeClass('active');
+      if (lang === 'jpn') {
+        $('#btn-jpn').addClass('active');
+      } else {
+        $('#btn-eng').addClass('active');
+      }
+    }
+
+    jQuery(function ($) {
+      // Default: Japanese
+      loadBook('jpn');
+
+      $('#btn-jpn').on('click', function (e) {
+        e.preventDefault();
+        loadBook('jpn');
+      });
+
+      $('#btn-eng').on('click', function (e) {
+        e.preventDefault();
+        loadBook('eng');
+      });
+    });
+  </script>
+</body>
+</html>
