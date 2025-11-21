@@ -8,7 +8,7 @@ $.fn.FlipBook = function(options) {
 $(() => {
 
   // FORCE DEFAULT PDF (What If = Japanese first)
-  const defaultPdf = 'amf_Simply-what-if_JP.pdf';
+  const defaultPdf = 'amf_Simply-what-if_JPN.pdf';
 
   let containers = $('.flip-book-container');
 
@@ -32,3 +32,4 @@ $(() => {
 });
 
 window.jQuery = window.$ = $;
+
