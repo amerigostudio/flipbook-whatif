@@ -4,12 +4,6 @@
     <div class="render"></div>
   </div>
 
-  <!-- LANGUAGE SWITCHER -->
-<div class="widLang lang-switch hbtn fade">
-  <a class="cmd cmdLocation" data-location="jpn" data-file="amf_Simply-what-if_JPN.pdf">JPN</a>
-  <a class="cmd cmdLocation" data-location="eng" data-file="amf_Simply-what-if_ENG.pdf">ENG</a>
-</div>
-  
   <!-- TABLE OF CONTENTS WINDOW -->
   <div class="toc widFloatWnd float-wnd hidden fade">
     <div class="head">
@@ -70,6 +64,7 @@
     </div>
   </div>
 
+  <!-- USER MESSAGE -->
   <div class="widUserMessage txtUserMessage user-message hidden fade"></div>
 
   <!-- PLAY BUTTON -->
@@ -77,49 +72,40 @@
     <a class="cmd cmdPendingPlay"><i class="fa fa-play"></i></a>
   </div>
 
-  <!-- PAGE ARROWS -->
+  <!-- PAGE ARROWS + TOOLBAR -->
   <div class="widControls ctrls hidden fade">
 
     <div class="prev hbtn">
-      <a class="cmd cmdBigBackward">
-        <i class="fa fa-angle-left"></i>
-      </a>
+      <a class="cmd cmdBigBackward"><i class="fa fa-angle-left"></i></a>
     </div>
 
     <div class="next hbtn">
-      <a class="cmd cmdBigForward">
-        <i class="fa fa-angle-right"></i>
-      </a>
+      <a class="cmd cmdBigForward"><i class="fa fa-angle-right"></i></a>
     </div>
 
-    <!-- ⭐ NEW FLOATING CENTERED TOOLBAR ⭐ -->
+    <!-- Toolbar (same as Sycamore) -->
     <div class="toolbar fb3d-toolbar-centered">
       <ul class="buttons">
         <li><a class="cmd cmdZoomIn"><i class="fa fa-search-plus"></i></a></li>
         <li><a class="cmd cmdZoomOut"><i class="fa fa-search-minus"></i></a></li>
         <li><a class="cmd cmdDefaultZoom"><i class="fa fa-compress"></i></a></li>
-
         <li><a class="cmd cmdAutoPlay">
           <i class="fa fa-play active-hidden"></i>
           <i class="fa fa-pause active-visible"></i>
         </a></li>
-
         <li><a class="cmd cmdToc"><i class="fa fa-bookmark"></i></a></li>
         <li><a class="cmd cmdBackward"><i class="fa fa-backward"></i></a></li>
-
         <li>
           <div class="pages">
-            <input type="text" class="number inpPage" maxlength="4" placeholder="1">
-            <input type="text" class="amount inpPages" maxlength="4" placeholder="1" readonly>
+            <input type="text" class="number inpPage" placeholder="1" maxlength="4">
+            <input type="text" class="amount inpPages" readonly placeholder="1" maxlength="4">
           </div>
         </li>
-
         <li><a class="cmd cmdForward"><i class="fa fa-forward"></i></a></li>
         <li><a class="cmd cmdShare"><i class="fa fa-share-alt"></i></a></li>
         <li><a class="cmd cmdSearchBtn"><i class="fa fa-search"></i></a></li>
         <li><a class="cmd cmdFullScreen"><i class="fa fa-arrows-alt"></i></a></li>
 
-        <!-- Settings Dropdown -->
         <li class="dropup widSettings">
           <a class="cmd menu-toggle"><i class="fa fa-ellipsis-h"></i></a>
           <ul class="v-menu hidden fade">
@@ -139,5 +125,3 @@
 
   </div>
 </div>
-
-
